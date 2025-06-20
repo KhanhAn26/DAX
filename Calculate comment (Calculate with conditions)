@@ -1,0 +1,39 @@
+Average Revenue of Customers in 2023 = 
+CALCULATE(
+    DIVIDE([Total Revenue], [Total Customer]),
+    FILTER(Sales, YEAR(Sales[SaleDate]) = 2023)
+)
+
+
+
+
+Total Customers with Discount = 
+CALCULATE(
+    DISTINCTCOUNT(Sales[CustomerID]),
+    FILTER(Sales, Sales[Discount]>0)
+)
+
+
+
+Total Revenue in North in 2023 = 
+CALCULATE(
+    [Total Revenue],
+    FILTER(Sales, Sales[Quantity] > 2),
+    TREATAS({"North"}, Customers[Region])
+)
+
+
+
+
+Total Revenue of East in 2023 = 
+CALCULATE(
+    [Total Revenue],
+    FILTER(Sales, YEAR(Sales[SaleDate] = 2023)),
+    FILTER(Sales, Sales[Quantity] > 2),
+    TREATAS({"East"}, Customers[Region])
+)
+
+
+
+
+
