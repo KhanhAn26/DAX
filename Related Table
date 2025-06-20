@@ -1,0 +1,5 @@
+Sales for product = 
+SUMX(
+    RELATEDTABLE(Purchase),
+    Purchase[Price] * Purchase[Quantity]
+)
