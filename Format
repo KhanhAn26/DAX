@@ -1,0 +1,2 @@
+Product Contribution = 
+FORMAT(DIVIDE([Sales for product], [Total Sales]), "0.00%")
