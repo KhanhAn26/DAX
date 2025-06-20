@@ -1,0 +1,10 @@
+Total Discount Value = 
+SUMX(
+    Sales,
+    Sales[Discount] * Sales[Quantity]
+)
+
+
+
+
+Total Revenue = SUMX(Sales, Sales[Quantity] * RELATED(Products[UnitPrice]))
