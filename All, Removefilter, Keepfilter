@@ -1,0 +1,19 @@
+Proportion of total points = 
+DIVIDE(
+    SUM(Teams[Points]),
+    CALCULATE(
+        SUM(Teams[Points]),
+        ALL(Managers[Nationality]))
+    )
+
+
+
+Ratio to England = 
+DIVIDE(
+    SUM(Teams[Points]),
+    CALCULATE(
+        SUM(Teams[Points]),
+        REMOVEFILTERS(Managers[Nationality]),
+        KEEPFILTERS(Managers[Nationality] = "England")
+    )
+)
