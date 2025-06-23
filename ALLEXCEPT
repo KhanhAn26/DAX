@@ -1,0 +1,14 @@
+Counts Show % of Year = 
+DIVIDE(
+    [Count Shows],
+    CALCULATE(
+        [Count Shows],
+        ALLEXCEPT(
+            Show,
+            Show[Show date].[Year])
+    )
+)
+
+
+
+
