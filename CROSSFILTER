@@ -1,0 +1,5 @@
+The number of tours that visited each venue = 
+CALCULATE(
+    DISTINCTCOUNT(Tour[Tour ID]),
+    CROSSFILTER(Show[Tour ID], Tour[Tour ID], Both)
+)
