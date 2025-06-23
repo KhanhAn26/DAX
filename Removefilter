@@ -1,0 +1,16 @@
+Avg height all countries = 
+CALCULATE(
+    AVERAGEX(
+        Building,
+        Building[Height m]),
+        REMOVEFILTERS(
+            Country[Country])
+)
+
+
+
+Max height no filters = 
+CALCULATE(
+    MAX(Building[Height m]),
+    REMOVEFILTERS(Building)
+)
