@@ -3,3 +3,14 @@ CALCULATE(
     DISTINCTCOUNT(Tour[Tour ID]),
     CROSSFILTER(Show[Tour ID], Tour[Tour ID], Both)
 )
+
+
+
+
+Count Artist = 
+CALCULATE(
+    DISTINCTCOUNT(Artist[Artist ID]),
+    CROSSFILTER(Venue[Venue ID], Show[Venue ID], Both),
+    CROSSFILTER(Show[Tour ID], Tour[Tour ID],Both),
+    CROSSFILTER(Tour[Artist ID], Artist[Artist ID], Both)
+)
