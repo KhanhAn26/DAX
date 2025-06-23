@@ -37,3 +37,16 @@ CALCULATE(
 
 
 
+Count Old Tall Building = 
+CALCULATE(
+    DISTINCTCOUNT(Building[Building ID]),
+    FILTER(
+        Building,
+        Building[Year Opened] < 2000 && 
+        Building[Height m] >= 400 ||
+        Building[Floors above ground] >= 100)
+)
+
+
+
+
