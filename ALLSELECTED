@@ -1,0 +1,10 @@
+Count Album % all = 
+DIVIDE(
+    [Count Album],
+    CALCULATE(
+        [Count Album],
+        ALLSELECTED('Album Type'[Album type]),
+        ALLSELECTED('Parent Company'[Parent company]),
+        ALLSELECTED(Genre[Genre])
+    )
+)
