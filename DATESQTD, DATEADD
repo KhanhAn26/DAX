@@ -1,0 +1,14 @@
+Previous quarter = 
+CALCULATE(
+    SUM(Purchase[Quantity]),
+    DATEADD('Calendar'[DateKey], -1, QUARTER)
+)
+
+
+
+Quarter-to-date = 
+CALCULATE(
+    SUM(Purchase[Price]),
+    DATESQTD(
+        Purchase[PurchaseDate])
+)
