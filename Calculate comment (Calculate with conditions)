@@ -49,4 +49,15 @@ CALCULATE(
 
 
 
+Count COVID cancelled shows tours = 
+CALCULATE(
+    DISTINCTCOUNT(Show[Tour ID]),
+    FILTER(
+        Show,
+        CONTAINSSTRING(Show[Cancellation reason], "COVID")
+    )
+)
+
+
+
 
