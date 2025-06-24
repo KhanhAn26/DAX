@@ -1,0 +1,9 @@
+Cumulative Oscars using variables = 
+VAR CurrentReleaseDate = Films[ReleaseDate]
+RETURN
+    CALCULATE(
+        SUM(Films[OscarWins]),
+        FILTER(
+            Films,
+            Films[ReleaseDate] <= CurrentReleaseDate)
+    )
