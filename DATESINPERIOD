@@ -1,0 +1,10 @@
+3-month MA = 
+AVERAGEX(
+    DATESINPERIOD(
+        'Calendar'[DateKey],
+        MAX('Calendar'[DateKey]),
+        -3, 
+        MONTH),
+        [Total qty]
+)
+
