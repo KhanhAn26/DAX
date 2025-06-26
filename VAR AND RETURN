@@ -1,0 +1,53 @@
+Cumulative Oscars using variables = 
+VAR CurrentReleaseDate = Films[ReleaseDate]
+RETURN
+    CALCULATE(
+        SUM(Films[OscarWins]),
+        FILTER(
+            Films,
+            Films[ReleaseDate] <= CurrentReleaseDate)
+    )
+
+
+% Of Unsold Tickets = 
+VAR TotalNumberOfTicketsSold = 
+CALCULATE(
+    SUM(Show[Tickets sold]),
+    FILTER(
+        Show,
+        NOT(ISBLANK(Show[Tickets sold])) && 
+        NOT(ISBLANK(Show[Tickets available]))
+    )
+)
+VAR TotalNumberOfTicketAvailable = 
+CALCULATE(
+    SUM(Show[Tickets available]),
+    FILTER(
+        Show,
+        NOT(ISBLANK(Show[Tickets available])) && 
+        NOT(ISBLANK(Show[Tickets sold]))
+    )
+)
+VAR TheNumberOfUnsoldTickets = TotalNumberOfTicketAvailable - TotalNumberOfTicketsSold
+RETURN
+DIVIDE(TheNumberOfUnsoldTickets, TotalNumberOfTicketAvailable)
+
+
+
+
+
+% Unsold Tickets vs All Artist = 
+VAR PercentageOfUnSoldTicketsForEachArtist = 
+CALCULATE(
+    [% Of Unsold Tickets],
+    FILTER(
+        Artist,
+        [Count Shows] >= 1)
+)
+VAR OverallPercentageOfUnsoldTickets = 
+    CALCULATE(
+        [% Of Unsold Tickets],
+        REMOVEFILTERS(Artist[Artist])
+)
+RETURN
+PercentageOfUnSoldTicketsForEachArtist - OverallPercentageOfUnsoldTickets
