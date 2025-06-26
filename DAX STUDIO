@@ -1,0 +1,16 @@
+EVALUATE
+FILTER(
+        Voting,
+        Voting[Remain] > 3 * Voting[Leave])
+    ORDER BY Voting[Remain] DESC
+
+
+
+EVALUATE
+    SUMMARIZE(
+        Films,
+        Genre[Genre],
+        "Average run-time", AVERAGE(Films[RunTimeMinutes]),
+        "Total Oscars won", SUM(Films[OscarWins])
+    )
+    ORDER BY Genre[Genre] ASC
